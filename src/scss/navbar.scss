@@ -1,20 +1,17 @@
-@import "general.scss";
-.row {
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  &__main {
-    ul {
-      list-style: none;
-      display: flex;
-      li {
-        margin: 0 5px;
+  &__menu {
+    display: flex;
+    align-items: center;
+    &--main {
+      ul {
+        list-style: none;
+        display: flex;
+        li {
+          margin: 0 5px;
+        }
       }
     }
   }
