@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import ItemCount from "../ItemCount/ItemCount";
 
 function Item(props) {
   return (
@@ -10,6 +11,7 @@ function Item(props) {
         <h2>{props.title}</h2>
         <p>{props.excerpt}</p>
       </div>
+      <ItemCount />
     </li>
   );
 }

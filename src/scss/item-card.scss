@@ -11,4 +11,17 @@
       object-position: center;
     }
   }
+  &__qtyButtons {
+    //width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 5px 5px 0 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .iButton {
+      cursor: pointer;
+    }
+  }
 }

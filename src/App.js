@@ -1,7 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import "./scss/style.scss";
-import Navbar from "./components/navbar/navbar";
+import Navbar from "./components/Navbar/Navbar";
+//import Promesa from "./components/Promesas/promesa";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 
 function App() {
