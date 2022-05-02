@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { AiFillPlusCircle } from "react-icons/ai";
-import { AiFillMinusCircle } from "react-icons/ai";
+import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 
 function ItemCount() {
   const [quant, setQuant] = useState(0);
 
   const masUno = () => {
     setQuant(quant + 1);
-    console.log(quant);
   };
 
   const menosUno = () => {
@@ -21,7 +19,6 @@ function ItemCount() {
       <div>
         <span>{quant}</span>
       </div>
-
       <div className="iButton" onClick={masUno}>
         <AiFillPlusCircle size="1.5em" color="orangered" />
       </div>

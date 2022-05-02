@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
 
-function Item(props) {
+function Item({ tour }) {
+  //console.log(tour);
+
   return (
-    <li className="item">
+    <li className="item" key={tour.id}>
       <div className="item__img">
-        <img src={props.url} alt={props.excerpt} />
+        <img src={tour.img} alt={tour.descripcion} />
       </div>
       <div className="item__content">
-        <h2>{props.title}</h2>
-        <p>{props.excerpt}</p>
+        <h2>{tour.nombre}</h2>
+        <p>{tour.descripcion}</p>
       </div>
       <ItemCount />
     </li>
