@@ -1,17 +1,22 @@
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 
 function Item({ tour }) {
   //console.log(tour);
 
   return (
-    <li className="item" key={tour.id}>
+    <li className="item">
       <div className="item__img">
-        <img src={tour.img} alt={tour.descripcion} />
+        <Link to={`/item-detail/${tour.id}`}>
+          <img src={tour.img} alt={tour.excerpt} />
+        </Link>
       </div>
       <div className="item__content">
-        <h2>{tour.nombre}</h2>
-        <p>{tour.descripcion}</p>
+        <Link to={`/item-detail/${tour.id}`}>
+          <h2>{tour.name}</h2>
+        </Link>
+        <p>{tour.excerpt}</p>
       </div>
       <ItemCount />
     </li>

@@ -7,7 +7,7 @@ function ItemList({ tours }) {
       <ul>
         {tours.length > 0 ? (
           tours.map((tour) => {
-            return <Item tour={tour} />;
+            return <Item tour={tour} key={tour.id} />;
           })
         ) : (
           <li>Cargando...</li>

@@ -1,0 +1,18 @@
+.category {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  &__box {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    &--link {
+      text-decoration: none;
+      padding: 3px 10px;
+      background-color: orangered;
+      border-radius: 5px;
+      color: white;
+    }
+  }
+}

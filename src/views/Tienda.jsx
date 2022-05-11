@@ -1,7 +1,7 @@
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 import Categories from "../components/Categories/Categories";
 
-function Home() {
+function Tienda() {
   return (
     <div>
       <Categories />
@@ -10,4 +10,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Tienda;

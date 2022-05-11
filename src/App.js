@@ -1,15 +1,14 @@
 import "./scss/style.scss";
-import Navbar from "./components/Navbar/Navbar";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import MyRoutes from "./routes/MyRoutes";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
+    <>
+      <MyRoutes />
+      {/*<Navbar />
       <ItemListContainer />
-      {/* <ItemDetailContainer /> */}
-    </div>
+       <ItemDetailContainer /> */}
+    </>
   );
 }
 
