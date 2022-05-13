@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 
-function ItemCount() {
+function ItemCount({ onAdd }) {
   const [quant, setQuant] = useState(0);
 
   const masUno = () => {
     setQuant(quant + 1);
+    if (onAdd) {
+      onAdd(quant + 1);
+    }
   };
 
   const menosUno = () => {

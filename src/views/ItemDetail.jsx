@@ -11,6 +11,14 @@ function ItemDetail() {
     }
   });
 
+  const onAdd = (qValue) => {
+    console.log(
+      `Se tiene en el carrito ${qValue} ${
+        qValue > 1 ? "productos." : "producto."
+      }`
+    );
+  };
+
   return (
     <section>
       <div className="ItemDetail-container row">
@@ -26,7 +34,7 @@ function ItemDetail() {
               <span> PEN</span>
             </div>
             <div className="detail__content--buttons">
-              <ItemCount />
+              <ItemCount onAdd={onAdd} />
               <button className="detail-btn">Agregar al Carrito</button>
             </div>
           </div>

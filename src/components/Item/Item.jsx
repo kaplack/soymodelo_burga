@@ -18,7 +18,7 @@ function Item({ tour }) {
         </Link>
         <p>{tour.excerpt}</p>
       </div>
-      <ItemCount />
+      {/* <ItemCount /> */}
     </li>
   );
 }
