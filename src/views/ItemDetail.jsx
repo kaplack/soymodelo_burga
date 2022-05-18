@@ -1,5 +1,7 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useContext } from "react";
+import { useParams } from "react-router-dom";
 import ItemCount from "../components/ItemCount/ItemCount";
+import { GlobalContext } from "../context/CartContext";
 import products from "../data/data.json";
 
 function ItemDetail() {
@@ -11,12 +13,20 @@ function ItemDetail() {
     }
   });
 
-  const onAdd = (qValue) => {
-    console.log(
-      `Se tiene en el carrito ${qValue} ${
-        qValue > 1 ? "productos." : "producto."
-      }`
-    );
+  const { quant, carrito, setQuant, loadCarrito } = useContext(GlobalContext);
+
+  const addItem = () => {
+    if (quant > 0) {
+      const car = {
+        id: detail.id,
+        q: quant,
+      };
+
+      loadCarrito(car);
+
+      //console.log(carrito);
+      setQuant(0);
+    }
   };
 
   return (
@@ -34,8 +44,10 @@ function ItemDetail() {
               <span> PEN</span>
             </div>
             <div className="detail__content--buttons">
-              <ItemCount onAdd={onAdd} />
-              <button className="detail-btn">Agregar al Carrito</button>
+              <ItemCount />
+              <button onClick={addItem} className="detail-btn">
+                Agregar al Carrito
+              </button>
             </div>
           </div>
         </div>

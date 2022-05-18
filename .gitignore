@@ -25,5 +25,6 @@ yarn-error.log*
 # testEnClase
 /src/components/Promesas
 /src/components/Condition
+service
 tailwind.config.js
 

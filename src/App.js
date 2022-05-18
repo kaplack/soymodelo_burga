@@ -1,13 +1,13 @@
 import "./scss/style.scss";
 import MyRoutes from "./routes/MyRoutes";
-import GlobalStateContext from "./context/GlobalStateContext";
+import CartContext from "./context/CartContext";
 
 function App() {
   return (
     <div className="App">
-      {/* <GlobalStateContext> */}
-      <MyRoutes />
-      {/* </GlobalStateContext> */}
+      <CartContext>
+        <MyRoutes />
+      </CartContext>
     </div>
   );
 }

@@ -3,12 +3,26 @@ import ItemList from "../ItemList/ItemList";
 import data from "../../data/data.json";
 import { useLocation, useParams } from "react-router-dom";
 
+// import { db } from "../../service/firebase";
+// import { doc, getDoc } from "firebase/firestore";
+
 export default function ItemListContainer() {
   const item = data;
 
   const [tours, setTours] = useState([]);
 
   useEffect(() => {
+    //1. Indicas la base de datos
+    // const item = doc(db, "productos", "laBvCe1nNFuXVc1LpTbY");
+
+    // getDoc(item).then((snapshot) => {
+    //   if (snapshot.exists()) {
+    //     setTours([...tours, { id: snapshot.nombre, ...snapshot.data() }]);
+    //   }
+    // });
+
+    //2. de que coleccion
+
     const pedido = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(item);

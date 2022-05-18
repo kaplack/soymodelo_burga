@@ -1,21 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
-//import { GlobalContext } from "../../context/GlobalStateContext";
+import { GlobalContext } from "../../context/CartContext";
 
-function ItemCount({ onAdd }) {
-  // const { quant, setQuant } = useContext(GlobalContext);
-  const [quant, setQuant] = useState(0);
-
-  const masUno = () => {
-    setQuant(quant + 1);
-    if (onAdd) {
-      onAdd(quant + 1);
-    }
-  };
-
-  const menosUno = () => {
-    quant > 0 ? setQuant(quant - 1) : console.log(quant);
-  };
+function ItemCount() {
+  const { quant, menosUno, masUno } = useContext(GlobalContext);
 
   return (
     <div className="item__qtyButtons">
