@@ -11,14 +11,15 @@ const CartList = ({ tours }) => {
       tours.map((t) => {
         t.id == car.id && newArr.push(t);
       });
+      //newArr += tours.filter((t) => t.id == car.id);
     });
-    //console.log(newArr);
+    console.log(newArr);
   };
   createArr();
 
   return (
-    <div className="items">
-      <ul>
+    <div className="cartList__items">
+      <ul className="cart">
         {newArr.length > 0 ? (
           newArr.map((itm) => {
             return <CartItem newArray={itm} key={itm.id} />;

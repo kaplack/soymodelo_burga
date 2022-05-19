@@ -14,5 +14,14 @@
         }
       }
     }
+    &--cart {
+      .cart-q {
+        background-color: black;
+        color: white;
+        border-radius: 50%;
+        padding: 0 6px;
+        font-size: 14px;
+      }
+    }
   }
 }

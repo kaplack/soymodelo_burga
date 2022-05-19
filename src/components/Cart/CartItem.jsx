@@ -3,15 +3,15 @@ import { MdDeleteForever } from "react-icons/md";
 import { GlobalContext } from "../../context/CartContext";
 
 const CartItem = ({ newArray }) => {
-  const { carrito } = useContext(GlobalContext);
-
+  const { carrito, setCarrito } = useContext(GlobalContext);
+  let cItem = {};
   const quantity = (itid) => {
-    carrito.map((car) => {
-      if (car.id == itid) {
-        console.log(car.q);
-        return car.q;
-      }
-    });
+    cItem = carrito.filter((car) => car.id == itid);
+    return cItem[0].q;
+  };
+
+  const handleDelete = (item_id) => {
+    setCarrito(carrito.filter((e) => e.id !== item_id));
   };
 
   return (
@@ -20,15 +20,18 @@ const CartItem = ({ newArray }) => {
         <img src={newArray.img} alt="" />
       </div>
       <div className="cart-item__content">
-        <h1>{newArray.name}</h1>
+        <h2>{newArray.name}</h2>
         <p>{newArray.excerpt}</p>
         <div className="cart-item__content--info">
-          <p>{newArray.price} PEN</p>
           <p>Cantidad: {quantity(newArray.id)}</p>
+          <p>{newArray.price} PEN</p>
         </div>
       </div>
       <div className="cart-del-icon">
-        <MdDeleteForever size="1.5em" onClick={handleDelete} />
+        <MdDeleteForever
+          size="1.5em"
+          onClick={() => handleDelete(newArray.id)}
+        />
       </div>
     </div>
   );
