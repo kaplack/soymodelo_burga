@@ -8,6 +8,7 @@ const CartContext = ({ children }) => {
   //proveer info y almacenar info
 
   // 3. traes los states q usas
+  const [tours, setTours] = useState([]);
   const [quant, setQuant] = useState(0);
   const [carrito, setCarrito] = useState([]);
 
@@ -63,6 +64,8 @@ const CartContext = ({ children }) => {
         setCarrito,
         isInCart,
         loadCarrito,
+        tours,
+        setTours,
       }}
     >
       {children}

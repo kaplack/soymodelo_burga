@@ -6,20 +6,21 @@ import products from "../data/data.json";
 
 function ItemDetail() {
   const tid = useParams();
-  let detail = {};
-  products.map((e) => {
-    if (e.id == tid.id) {
-      detail = e;
-    }
-  });
-
+  // let detail = {};
+  // products.map((e) => {
+  //   if (e.id == tid.id) {
+  //     detail = e;
+  //   }
+  // });
   const { quant, carrito, setQuant, loadCarrito } = useContext(GlobalContext);
+  let detail = products.filter((e) => e.id == tid.id)[0];
 
   const addItem = () => {
     if (quant > 0) {
       const car = {
         id: detail.id,
         q: quant,
+        price: detail.price,
       };
 
       loadCarrito(car);

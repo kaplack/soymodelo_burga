@@ -9,8 +9,12 @@ export default function CartIcon() {
   //console.log(quantity);
   return (
     <div className="nav__menu--cart">
-      <MdOutlineShoppingCart size="1.5em" />
-      <span className="cart-q">{quantity}</span>
+      {quantity > 0 && (
+        <>
+          <MdOutlineShoppingCart size="1.5em" />
+          <span className="cart-q">{quantity}</span>
+        </>
+      )}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../../context/CartContext";
 import CartItem from "./CartItem";
+import { Link } from "react-router-dom";
 
 const CartList = ({ tours }) => {
   const { carrito } = useContext(GlobalContext);
@@ -25,7 +26,12 @@ const CartList = ({ tours }) => {
             return <CartItem newArray={itm} key={itm.id} />;
           })
         ) : (
-          <li>Cargando...</li>
+          <>
+            <p>El carrito esta vacio</p>
+            <Link to="/" className="btn btn-ghost">
+              Volver al Home
+            </Link>
+          </>
         )}
       </ul>
     </div>
