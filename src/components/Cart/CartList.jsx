@@ -3,14 +3,14 @@ import { GlobalContext } from "../../context/CartContext";
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 
-const CartList = ({ tours }) => {
+const CartList = ({ products }) => {
   const { carrito } = useContext(GlobalContext);
   //console.log(carrito);
   let newArr = [];
   const createArr = () => {
     carrito.map((car) => {
-      tours.map((t) => {
-        t.id == car.id && newArr.push(t);
+      products.map((p) => {
+        p.id == car.id && newArr.push(p);
       });
       //newArr += tours.filter((t) => t.id == car.id);
     });

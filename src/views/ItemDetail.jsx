@@ -1,19 +1,32 @@
-import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { Firestore } from "firebase/firestore";
+import { useContext, useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import ItemCount from "../components/ItemCount/ItemCount";
 import { GlobalContext } from "../context/CartContext";
-import products from "../data/data.json";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
+import db from "../service/firebase";
 
 function ItemDetail() {
   const tid = useParams();
-  // let detail = {};
-  // products.map((e) => {
-  //   if (e.id == tid.id) {
-  //     detail = e;
-  //   }
-  // });
-  const { quant, carrito, setQuant, loadCarrito } = useContext(GlobalContext);
-  let detail = products.filter((e) => e.id == tid.id)[0];
+
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const item = doc(db, "productos", tid.id);
+    getDoc(item).then((snapshot) => {
+      if (snapshot.exists()) {
+        setProduct({ id: snapshot.id, ...snapshot.data() });
+      }
+    });
+  }, []);
+  let detail = product;
+
+  const { quant, setQuant, loadCarrito, isInCart } = useContext(GlobalContext);
+
+  // const { products, quant, carrito, setQuant, loadCarrito, isInCart } =
+  //   useContext(GlobalContext);
+  // console.log(products);
+  // let detail = products.filter((e) => e.id == tid.id)[0];
 
   const addItem = () => {
     if (quant > 0) {
@@ -46,9 +59,15 @@ function ItemDetail() {
             </div>
             <div className="detail__content--buttons">
               <ItemCount />
-              <button onClick={addItem} className="detail-btn">
-                Agregar al Carrito
-              </button>
+              {!isInCart(detail.id) ? (
+                <button onClick={addItem} className="detail-btn">
+                  Agregar al Carrito
+                </button>
+              ) : (
+                <Link to="/cart" className="btn btn-blue">
+                  Terminar compra
+                </Link>
+              )}
             </div>
           </div>
         </div>

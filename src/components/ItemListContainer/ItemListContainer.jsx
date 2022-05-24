@@ -1,60 +1,92 @@
 import React, { useContext, useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
-import data from "../../data/data.json";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { GlobalContext } from "../../context/CartContext";
-
-// import { db } from "../../service/firebase";
-// import { doc, getDoc } from "firebase/firestore";
+import db from "../../service/firebase";
+import { docs, getDocs, collection, query, where } from "firebase/firestore";
 
 export default function ItemListContainer() {
-  const item = data;
+  //const item = data;
 
-  const { tours, setTours } = useContext(GlobalContext);
+  const { products, setProducts } = useContext(GlobalContext);
+  const [prodFiltered, setProdFiltered] = useState([]);
+  //const [catry, setCatry] = useState("");
+
+  const cat = useParams();
+
+  const getData = async () => {
+    const col = collection(db, "productos");
+    try {
+      const data = await getDocs(col);
+      const result = data.docs.map(
+        (doc) => (doc = { id: doc.id, ...doc.data() })
+      );
+      setProducts(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //let prodFiltered = [];
+  const getDataFiltered = async () => {
+    const col = collection(db, "productos");
+
+    const q = query(col, where("category", "==", cat.id));
+
+    try {
+      const data = await getDocs(q);
+      const result = data.docs.map(
+        (doc) => (doc = { id: doc.id, ...doc.data() })
+      );
+      setProdFiltered(result);
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    //1. Indicas la base de datos
-    // const item = doc(db, "productos", "laBvCe1nNFuXVc1LpTbY");
-
-    // getDoc(item).then((snapshot) => {
-    //   if (snapshot.exists()) {
-    //     setTours([...tours, { id: snapshot.nombre, ...snapshot.data() }]);
-    //   }
-    // });
+    //console.log(cat.id);
+    if (cat.id) {
+      getDataFiltered();
+    } else {
+      getData();
+    }
 
     //2. de que coleccion
 
-    const pedido = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(item);
-      }, 2000);
-    });
-    pedido.then(
-      (res) => {
-        setTours(res);
-      },
-      (err) => {
-        console.log("error", err);
-      }
-    );
-    return () => {};
-  }, []);
+    // const pedido = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(item);
+    //   }, 2000);
+    // });
+    // pedido.then(
+    //   (res) => {
+    //     setTours(res);
+    //   },
+    //   (err) => {
+    //     console.log("error", err);
+    //   }
+    // );
+  }, [products, prodFiltered]);
 
-  const cat = useParams();
-  let toursFiltered = [];
-  if (cat.id) {
-    tours.map((ele) => {
-      if (ele.category == cat.id) {
-        toursFiltered.push(ele);
-      }
-    });
-  }
+  // const cat = useParams();
+  // let productsFiltered = [];
+  // console.log(cat.id);
+  // if (cat.id) {
+  //   products.map((ele) => {
+  //     if (ele.category == cat.id) {
+  //       productsFiltered.push(ele);
+  //     }
+  //   });
+  // }
 
   return (
     <section>
       <div className="itemList row">
-        <h1>Lista de Tours</h1>
-        <ItemList tours={cat.id ? toursFiltered : tours} />
+        <h1>Productos</h1>
+        <p>Fotografias publicadas recientemente.</p>
+        <ItemList products={cat.id ? prodFiltered : products} />
       </div>
     </section>
   );

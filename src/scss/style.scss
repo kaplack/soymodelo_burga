@@ -1,7 +1,9 @@
-@import "general.scss";
-@import "navbar.scss";
-@import "item-card.scss";
-@import "ItemListContainer.scss";
-@import "itemDetail.scss";
-@import "category.scss";
-@import "cart.scss";
+@import "./abstract/mixin.scss";
+@import "./abstract/variables.scss";
+@import "./base/general.scss";
+@import "./components/cart.scss";
+@import "./components/item-card.scss";
+@import "./components/itemListContainer.scss";
+@import "./components/itemDetail.scss";
+@import "./components/category.scss";
+@import "./components/navbar.scss";

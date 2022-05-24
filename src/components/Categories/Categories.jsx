@@ -1,15 +1,18 @@
-import React from "react";
-import data from "../../data/data.json";
+import React, { useContext } from "react";
+//import data from "../../data/data.json";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../../context/CartContext";
 
 function Categories() {
+  const { products } = useContext(GlobalContext);
+
   let catArr = [];
-  data.map((e) => {
+  products.map((e) => {
     catArr.push(e.category);
   });
   catArr = new Set(catArr);
   catArr = [...catArr];
-  console.log(catArr);
+  //console.log(catArr);
   return (
     <section className="category">
       <div className="category__box">
