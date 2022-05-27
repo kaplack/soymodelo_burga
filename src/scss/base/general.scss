@@ -40,6 +40,27 @@ section {
   max-width: 1200px;
 }
 
+h1 {
+  margin-bottom: 4rem;
+}
+
 .center {
   text-align: center;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    background-color: orangered;
+    border: 1px solid orangered;
+  }
 }

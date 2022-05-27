@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: 1rem;
     width: 600px;
     .cart-item {
       width: 100%;
@@ -28,7 +29,7 @@
       }
 
       &__content {
-        flex: 1 0 200px;
+        flex: 1 0 150px;
         padding: 10px;
         h2 {
           font-size: 16px;
@@ -45,5 +46,17 @@
         width: 30px;
       }
     }
+  }
+}
+
+.summary {
+  margin: 3rem 0;
+  padding: 1rem;
+  .summary-box {
+    border: 1px solid white;
+    border-radius: 0.5rem;
+    padding: 2rem 0.5rem;
+    display: flex;
+    justify-content: space-around;
   }
 }

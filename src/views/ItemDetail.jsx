@@ -11,22 +11,22 @@ function ItemDetail() {
 
   const [product, setProduct] = useState({});
 
-  useEffect(() => {
-    const item = doc(db, "productos", tid.id);
-    getDoc(item).then((snapshot) => {
-      if (snapshot.exists()) {
-        setProduct({ id: snapshot.id, ...snapshot.data() });
-      }
-    });
-  }, []);
-  let detail = product;
+  // useEffect(() => {
+  //   const item = doc(db, "productos", tid.id);
+  //   getDoc(item).then((snapshot) => {
+  //     if (snapshot.exists()) {
+  //       setProduct({ id: snapshot.id, ...snapshot.data() });
+  //     }
+  //   });
+  // }, []);
+  //let detail = product;
 
-  const { quant, setQuant, loadCarrito, isInCart } = useContext(GlobalContext);
+  //const { quant, setQuant, loadCarrito, isInCart } = useContext(GlobalContext);
 
-  // const { products, quant, carrito, setQuant, loadCarrito, isInCart } =
-  //   useContext(GlobalContext);
-  // console.log(products);
-  // let detail = products.filter((e) => e.id == tid.id)[0];
+  const { products, quant, carrito, setQuant, loadCarrito, isInCart } =
+    useContext(GlobalContext);
+  //console.log(products);
+  let detail = products.filter((e) => e.id == tid.id)[0];
 
   const addItem = () => {
     if (quant > 0) {
@@ -64,7 +64,7 @@ function ItemDetail() {
                   Agregar al Carrito
                 </button>
               ) : (
-                <Link to="/cart" className="btn btn-blue">
+                <Link to="/checkout" className="btn btn-blue">
                   Terminar compra
                 </Link>
               )}

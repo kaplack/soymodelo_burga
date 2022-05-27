@@ -1,10 +1,13 @@
 @import "./abstract/mixin.scss";
 @import "./abstract/variables.scss";
 @import "./abstract/grid.scss";
+
 @import "./base/general.scss";
+
 @import "./components/cart.scss";
 @import "./components/item-card.scss";
 @import "./components/itemListContainer.scss";
 @import "./components/itemDetail.scss";
 @import "./components/category.scss";
 @import "./components/navbar.scss";
+@import "./components/checkout.scss";

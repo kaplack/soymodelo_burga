@@ -12,7 +12,7 @@ export default function ItemListContainer() {
   const [prodFiltered, setProdFiltered] = useState([]);
   //const [catry, setCatry] = useState("");
 
-  const cat = useParams();
+  //const cat = useParams();
 
   const getData = async () => {
     const col = collection(db, "productos");
@@ -39,7 +39,7 @@ export default function ItemListContainer() {
         (doc) => (doc = { id: doc.id, ...doc.data() })
       );
       setProdFiltered(result);
-      console.log(result);
+      //console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -47,11 +47,11 @@ export default function ItemListContainer() {
 
   useEffect(() => {
     //console.log(cat.id);
-    if (cat.id) {
-      getDataFiltered();
-    } else {
-      getData();
-    }
+    //if (cat.id) {
+    //getDataFiltered();
+    //} else {
+    getData();
+    //}
 
     //2. de que coleccion
 
@@ -68,25 +68,21 @@ export default function ItemListContainer() {
     //     console.log("error", err);
     //   }
     // );
-  }, [products, prodFiltered]);
+  }, []);
 
-  // const cat = useParams();
-  // let productsFiltered = [];
-  // console.log(cat.id);
-  // if (cat.id) {
-  //   products.map((ele) => {
-  //     if (ele.category == cat.id) {
-  //       productsFiltered.push(ele);
-  //     }
-  //   });
-  // }
-
+  const cat = useParams();
+  let productsFiltered = [];
+  //console.log(cat.id);
+  if (cat.id) {
+    productsFiltered = products.filter((ele) => ele.category == cat.id);
+  }
+  //console.log(productsFiltered);
   return (
     <section>
       <div className="itemList row">
         <h1>Productos</h1>
         <p>Fotografias publicadas recientemente.</p>
-        <ItemList products={cat.id ? prodFiltered : products} />
+        <ItemList products={cat.id ? productsFiltered : products} />
       </div>
     </section>
   );

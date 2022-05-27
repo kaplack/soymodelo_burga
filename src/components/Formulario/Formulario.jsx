@@ -49,8 +49,9 @@ const Formulario = ({ total, compra }) => {
   //let total = carrito.reduce((a, b) => a + b.price * b.q, 0);
 
   return (
-    <div>
+    <section>
       <form onSubmit={handleSubmit} className="checkout-form">
+        <p>Finaliza tu compra llenando el siguiente formulario.</p>
         {Object.keys(formulario.buyer).map((key, index) => (
           <Input
             key={index}
@@ -61,11 +62,16 @@ const Formulario = ({ total, compra }) => {
             onChange={formHandleChange}
           />
         ))}
-        <div>
-          <button type="submit">Enviar</button>
+        <div className="checkout-form__submit">
+          <button
+            type="submit"
+            className="checkout-form__submit--button btn btn-ghost"
+          >
+            Enviar
+          </button>
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 

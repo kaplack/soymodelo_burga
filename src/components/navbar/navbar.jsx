@@ -16,9 +16,9 @@ export default function Navbar() {
               <li>
                 <NavLink to="/">Home</NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/cart">Cart</NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to="/checkout">Checkout</NavLink>
               </li>

@@ -12,10 +12,6 @@ const CartListContainer = () => {
   return (
     <section>
       <div className="cartList row">
-        <div className="cartList__title">
-          <h1>Cart</h1>
-        </div>
-        <CartSum />
         <CartList products={products} />
       </div>
     </section>
