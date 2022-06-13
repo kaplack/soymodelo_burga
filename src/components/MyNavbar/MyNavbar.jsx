@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import { useAuthStatus } from "../../hooks/useAuthStatus";
 
-function Navbar() {
+function MyNavbar() {
   const { loggedIn } = useAuthStatus();
 
   return (
@@ -40,4 +40,4 @@ function Navbar() {
     </section>
   );
 }
-export default Navbar;
+export default MyNavbar;
