@@ -9,7 +9,6 @@ function Layout() {
     <div>
       <Navbar />
       <Outlet />
-      {/* {loggedIn ? <Outlet /> : <Navigate to="/signin" />} */}
       <Footer />
     </div>
   );

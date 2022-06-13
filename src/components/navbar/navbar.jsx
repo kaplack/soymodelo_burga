@@ -2,10 +2,9 @@ import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import { useAuthStatus } from "../../hooks/useAuthStatus";
 
-export default function Navbar() {
+function Navbar() {
   const { loggedIn } = useAuthStatus();
 
-  //console.log(user.currentUser);
   return (
     <section className="nav-section">
       <div className="nav row">
@@ -20,7 +19,6 @@ export default function Navbar() {
               {loggedIn ? (
                 <li>
                   <NavLink to="/profile">Mi cuenta</NavLink>
-                  {/* <NavLink to="/publicar">Publicar</NavLink> */}
                 </li>
               ) : (
                 <li>
@@ -31,11 +29,7 @@ export default function Navbar() {
               <li>
                 <NavLink to="/checkout">Checkout</NavLink>
               </li>
-              {/* {loggedIn && (
-                <li>
-                  <FaUserAlt />
-                </li>
-              )} */}
+
               <li>
                 <CartWidget />
               </li>
@@ -46,3 +40,4 @@ export default function Navbar() {
     </section>
   );
 }
+export default Navbar;
