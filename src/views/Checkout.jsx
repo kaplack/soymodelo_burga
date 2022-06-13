@@ -6,6 +6,9 @@ import { GlobalContext } from "../context/CartContext";
 
 function Checkout() {
   const { carrito } = useContext(GlobalContext);
+
+  let totalBuy = carrito.reduce((a, b) => a + b.q * b.price, 0);
+
   return (
     <div className="grid-row">
       <div className="center">
@@ -15,7 +18,7 @@ function Checkout() {
         <CartListContainer />
       </div>
       <div className="col-1-of-2">
-        <Formulario total={1000} compra={carrito} />
+        <Formulario total={totalBuy} compra={carrito} />
         <CartSum />
       </div>
     </div>

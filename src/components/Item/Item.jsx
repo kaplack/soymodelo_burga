@@ -18,7 +18,6 @@ function Item({ product }) {
         </Link>
         <p>{product.excerpt}</p>
       </div>
-      {/* <ItemCount /> */}
     </li>
   );
 }

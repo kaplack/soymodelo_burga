@@ -14,7 +14,7 @@ const CartList = ({ products }) => {
       });
       //newArr += tours.filter((t) => t.id == car.id);
     });
-    console.log(newArr);
+    //console.log(newArr);
   };
   createArr();
 

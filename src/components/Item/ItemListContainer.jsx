@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import ItemList from "../ItemList/ItemList";
+import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import { GlobalContext } from "../../context/CartContext";
 import db from "../../service/firebase";
@@ -80,8 +80,11 @@ export default function ItemListContainer() {
   return (
     <section>
       <div className="itemList row">
-        <h1>Productos</h1>
-        <p>Fotografias publicadas recientemente.</p>
+        <div className="itemList__header">
+          <h1>Productos</h1>
+          <p>Fotografias publicadas recientemente.</p>
+        </div>
+
         <ItemList products={cat.id ? productsFiltered : products} />
       </div>
     </section>

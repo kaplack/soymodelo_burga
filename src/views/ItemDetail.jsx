@@ -1,15 +1,12 @@
-import { Firestore } from "firebase/firestore";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import ItemCount from "../components/ItemCount/ItemCount";
+import ItemCount from "../components/Item/ItemCount";
 import { GlobalContext } from "../context/CartContext";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
-import db from "../service/firebase";
 
 function ItemDetail() {
   const tid = useParams();
 
-  const [product, setProduct] = useState({});
+  //const [product, setProduct] = useState({});
 
   // useEffect(() => {
   //   const item = doc(db, "productos", tid.id);
@@ -23,10 +20,10 @@ function ItemDetail() {
 
   //const { quant, setQuant, loadCarrito, isInCart } = useContext(GlobalContext);
 
-  const { products, quant, carrito, setQuant, loadCarrito, isInCart } =
+  const { products, quant, setQuant, loadCarrito, isInCart } =
     useContext(GlobalContext);
   //console.log(products);
-  let detail = products.filter((e) => e.id == tid.id)[0];
+  let detail = products.filter((e) => e.id === tid.id)[0];
 
   const addItem = () => {
     if (quant > 0) {

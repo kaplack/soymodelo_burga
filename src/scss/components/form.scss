@@ -1,0 +1,79 @@
+.form {
+  --pad: 1rem;
+
+  width: 32rem;
+  padding: var(--pad);
+  &__box {
+    margin: 1.5rem 0;
+    position: relative;
+
+    &--input {
+      width: calc(100% - 2 * var(--pad));
+      padding: 1rem;
+      border-radius: 1.5rem;
+      border: none;
+    }
+
+    &--input-short {
+      width: calc(50% - var(--pad));
+      padding: 1rem;
+      border-radius: 1.5rem;
+      border: none;
+    }
+
+    &--input-file {
+      border: 1px solid white;
+      width: 100%;
+      border-radius: 1.6rem;
+
+      &::-webkit-file-upload-button {
+        padding: 1rem;
+        border-radius: 1.4rem;
+        border: none;
+      }
+    }
+
+    &--label {
+      display: inline-block;
+      margin: 0.5rem 0;
+    }
+
+    &--button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 1.5rem;
+    }
+    &.flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__buttons-box {
+    margin: 1.5rem 0;
+    position: relative;
+
+    &--input {
+      width: 28rem;
+      padding: 1rem;
+      border-radius: 1.5rem;
+      border: none;
+    }
+
+    &--button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 1.5rem;
+    }
+
+    .active {
+      background-color: $main-color;
+      color: white;
+    }
+  }
+
+  &__button {
+    text-align: center;
+  }
+}

@@ -1,7 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
+import { FaUserAlt } from "react-icons/fa";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { getAuth } from "firebase/auth";
+import { useState } from "react";
+import { useAuthStatus } from "../../hooks/useAuthStatus";
 
 export default function Navbar() {
+  const { loggedIn } = useAuthStatus();
+  const { currentUser } = getAuth();
+
+  //console.log(user.currentUser);
   return (
     <section className="nav-section">
       <div className="nav row">
@@ -13,18 +22,30 @@ export default function Navbar() {
         <div className="nav__menu">
           <nav className="nav__menu--main">
             <ul>
-              <li>
-                <NavLink to="/">Home</NavLink>
-              </li>
-              {/* <li>
-                <NavLink to="/cart">Cart</NavLink>
-              </li> */}
+              {loggedIn ? (
+                <li>
+                  <NavLink to="/profile">Mi cuenta</NavLink>
+                  {/* <NavLink to="/publicar">Publicar</NavLink> */}
+                </li>
+              ) : (
+                <li>
+                  <NavLink to="/signin">Sign In</NavLink>
+                </li>
+              )}
+
               <li>
                 <NavLink to="/checkout">Checkout</NavLink>
               </li>
+              {/* {loggedIn && (
+                <li>
+                  <FaUserAlt />
+                </li>
+              )} */}
+              <li>
+                <CartWidget />
+              </li>
             </ul>
           </nav>
-          <CartWidget />
         </div>
       </div>
     </section>

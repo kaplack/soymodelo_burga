@@ -20,15 +20,24 @@
   &__menu {
     display: flex;
     align-items: center;
+    padding-right: 1rem;
     &--main {
+      position: relative;
+
       ul {
         list-style: none;
         display: flex;
-        li a {
-          margin: 0 10px;
-          color: white;
-          text-decoration: none;
-          padding: 0 8px 2px 8px;
+        li {
+          margin: 1.5rem 0;
+          a {
+            margin: 1rem;
+            color: white;
+            text-decoration: none;
+            padding: 0 8px 2px 8px;
+            @include respond(phone) {
+              padding: 0 4px;
+            }
+          }
         }
 
         li a.active {
@@ -38,13 +47,17 @@
         }
       }
     }
+
     &--cart {
+      position: relative;
       .cart-q {
         background-color: black;
         color: white;
         border-radius: 50%;
-        padding: 0 6px;
-        font-size: 14px;
+        padding: 0.2rem 0.6rem;
+        font-size: 1.4rem;
+        position: absolute;
+        transform: translate(-50%, 50%);
       }
     }
   }

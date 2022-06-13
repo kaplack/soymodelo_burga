@@ -1,0 +1,34 @@
+.signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .visibility-button {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 1rem;
+    color: $main-color;
+  }
+  .signin-link {
+    text-align: right;
+  }
+  .forgot-link {
+    font-size: 1.2rem;
+    color: $main-color;
+  }
+
+  .signup {
+    position: relative;
+    &__label:hover {
+      color: $main-color;
+      transition: 0.3s all;
+    }
+
+    &__button {
+      position: absolute;
+      transform: translateY(-50%);
+      top: 50%;
+    }
+  }
+}

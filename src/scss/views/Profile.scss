@@ -1,0 +1,66 @@
+.profile {
+  padding: 0 1rem;
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    @include respond(phone) {
+      flex-direction: column-reverse;
+    }
+
+    .profile-form {
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(255, 255, 255);
+      border-radius: 1rem;
+      overflow: hidden;
+      &__input {
+        min-width: 250px;
+        border: none;
+        padding: 1rem;
+        background-color: rgb(255, 255, 255);
+        &:disabled {
+          background-color: rgb(212, 212, 212);
+        }
+      }
+    }
+    .profile-buttons {
+      button {
+        background-color: transparent;
+        color: white;
+        border: none;
+        padding: 0.5rem;
+        cursor: pointer;
+      }
+      @include respond(phone) {
+        align-self: flex-end;
+      }
+    }
+  }
+  .publicar-prod {
+    margin: 1rem 0;
+    display: block;
+    position: relative;
+    &__link {
+      display: inline-block;
+      padding: 1rem;
+      background-color: white;
+      color: black;
+      border-radius: 1rem;
+      position: relative;
+      min-width: 250px;
+      @include respond(phone) {
+        min-width: unset;
+        width: calc(100% - 2rem);
+      }
+      .add-icon {
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        right: 1rem;
+      }
+    }
+  }
+  .publicaciones {
+    margin: 2rem 0;
+  }
+}

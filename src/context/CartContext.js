@@ -12,6 +12,9 @@ const CartContext = ({ children }) => {
   const [quant, setQuant] = useState(0);
   const [carrito, setCarrito] = useState([]);
 
+  //USER
+  const [user, setUser] = useState({});
+
   const onAdd = (qValue) => {
     console.log(
       `Se tiene en el carrito ${qValue} ${
@@ -66,6 +69,8 @@ const CartContext = ({ children }) => {
         loadCarrito,
         products,
         setProducts,
+        user,
+        setUser,
       }}
     >
       {children}

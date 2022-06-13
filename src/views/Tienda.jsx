@@ -1,4 +1,4 @@
-import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
+import ItemListContainer from "../components/Item/ItemListContainer";
 import Categories from "../components/Categories/Categories";
 
 function Tienda() {
