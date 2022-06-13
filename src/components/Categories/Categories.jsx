@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-//import data from "../../data/data.json";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/CartContext";
 
@@ -8,7 +7,7 @@ function Categories() {
 
   let catArr = [];
   products.map((e) => {
-    catArr.push(e.category);
+    return catArr.push(e.category);
   });
   catArr = new Set(catArr);
   catArr = [...catArr];

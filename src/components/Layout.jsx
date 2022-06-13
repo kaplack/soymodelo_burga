@@ -1,6 +1,6 @@
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer";
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 function Layout() {
   //const loggedIn = true;

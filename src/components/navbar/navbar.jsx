@@ -1,14 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
-import { FaUserAlt } from "react-icons/fa";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { getAuth } from "firebase/auth";
-import { useState } from "react";
 import { useAuthStatus } from "../../hooks/useAuthStatus";
 
 export default function Navbar() {
   const { loggedIn } = useAuthStatus();
-  const { currentUser } = getAuth();
 
   //console.log(user.currentUser);
   return (
