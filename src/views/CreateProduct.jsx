@@ -102,7 +102,7 @@ const CreateProduct = () => {
     const formDataCopy = {
       ...formData,
       img: [...imgUrls],
-      timstamp: serverTimestamp(),
+      timestamp: serverTimestamp(),
     };
     //delete formDataCopy.img;
 
