@@ -4,7 +4,7 @@ Aplicativo de e-commerce desarrollado en React
 
 ## Description
 
-Es un e-commerce de paquetes de viaje.
+Es un e-commerce de fotografia digital.
 
 ## Authors
 

@@ -26,18 +26,20 @@ function ItemDetail() {
   let detail = products.filter((e) => e.id === tid.id)[0];
 
   const addItem = () => {
-    if (quant > 0) {
-      const car = {
-        id: detail.id,
-        q: quant,
-        price: detail.price,
-      };
+    //if (quant > 0) {
+    console.log("hola");
+    const car = {
+      id: detail.id,
+      q: quant,
+      price: detail.price,
+    };
+    console.log(car);
 
-      loadCarrito(car);
+    loadCarrito(car);
 
-      //console.log(carrito);
-      setQuant(0);
-    }
+    //console.log(carrito);
+    setQuant(0);
+    //}
   };
 
   return (
@@ -55,15 +57,20 @@ function ItemDetail() {
               <span> PEN</span>
             </div>
             <div className="detail__content--buttons">
-              <ItemCount />
+              {!isInCart(detail.id) && <ItemCount />}
               {!isInCart(detail.id) ? (
                 <button onClick={addItem} className="detail-btn">
                   Agregar al Carrito
                 </button>
               ) : (
-                <Link to="/checkout" className="btn btn-blue">
-                  Terminar compra
-                </Link>
+                <div className="btn-flex">
+                  <Link to="/checkout" className="btn btn-ghost">
+                    Terminar compra
+                  </Link>
+                  <Link to="/" className="btn btn-ghost">
+                    Seguir Comprando
+                  </Link>
+                </div>
               )}
             </div>
           </div>

@@ -15,30 +15,31 @@ const CartContext = ({ children }) => {
   //USER
   const [user, setUser] = useState({});
 
-  const onAdd = (qValue) => {
-    console.log(
-      `Se tiene en el carrito ${qValue} ${
-        qValue > 1 ? "productos." : "producto."
-      }`
-    );
-  };
+  // const onAdd = (qValue) => {
+  //   console.log(
+  //     `Se tiene en el carrito ${qValue} ${
+  //       qValue > 1 ? "productos." : "producto."
+  //     }`
+  //   );
+  // };
 
   const masUno = () => {
     setQuant(quant + 1);
-    if (onAdd) {
-      onAdd(quant + 1);
-    }
+    // if (onAdd) {
+    //   onAdd(quant + 1);
+    // }
   };
 
   const menosUno = () => {
-    quant > 0 ? setQuant(quant - 1) : console.log(quant);
+    quant > 1 ? setQuant(quant - 1) : console.log(quant);
   };
 
   const loadCarrito = (obj) => {
+    console.log(carrito.length);
     if (carrito.length > 0 && isInCart(obj.id)) {
       //si hay articulos y el id coincide
       carrito.map((item) => {
-        if (item.id == obj.id) {
+        if (item.id === obj.id) {
           item.q = obj.q + item.q;
         }
       });
@@ -61,7 +62,7 @@ const CartContext = ({ children }) => {
         quant,
         setQuant,
         menosUno,
-        onAdd,
+        //onAdd,
         masUno,
         carrito,
         setCarrito,

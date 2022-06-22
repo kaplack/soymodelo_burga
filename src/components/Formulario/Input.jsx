@@ -10,6 +10,7 @@ const Input = ({ type, className, placeHolder, onChange, value, vName }) => {
         name={vName}
         value={value}
         onChange={onChange}
+        required
       />
     </>
   );

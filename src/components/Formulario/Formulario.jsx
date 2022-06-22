@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Input from "./Input";
 //import useFirebase from "../../hooks/useFirebase";
 import db from "../../service/firebase";
 import { addDoc, collection } from "firebase/firestore";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../../context/CartContext";
 
 const Formulario = ({ total, compra }) => {
   const [formulario, setFormulario] = useState({
@@ -15,7 +18,8 @@ const Formulario = ({ total, compra }) => {
     total: total,
     items: compra,
   });
-
+  const navigate = useNavigate();
+  const { setCarrito } = useContext(GlobalContext);
   const [error, setError] = useState({});
   const {
     buyer: { email, name, lastname, phone },
@@ -27,9 +31,11 @@ const Formulario = ({ total, compra }) => {
       const col = collection(db, "orders");
       const order = await addDoc(col, data);
       //setLoading(false)
-      console.log("order ok", order.id);
+      toast.success(`se cargo su orden ${order.id}`);
+      setCarrito([]);
+      navigate("/");
     } catch (error) {
-      console.log(error);
+      toast.error(`lo siento no se pudo cargar su orden`);
     }
   };
 
