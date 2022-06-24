@@ -3,7 +3,8 @@ import { MdDeleteForever } from "react-icons/md";
 import { GlobalContext } from "../../context/CartContext";
 
 const CartItem = ({ newArray }) => {
-  const { carrito, setCarrito } = useContext(GlobalContext);
+  const { carrito, setCarrito, setShowCart, showCart } =
+    useContext(GlobalContext);
   let cItem = {};
   const quantity = (itid) => {
     cItem = carrito.filter((car) => car.id == itid);
@@ -12,6 +13,7 @@ const CartItem = ({ newArray }) => {
 
   const handleDelete = (item_id) => {
     setCarrito(carrito.filter((e) => e.id !== item_id));
+    setShowCart((prevState) => prevState - 1);
   };
 
   return (
