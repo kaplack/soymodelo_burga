@@ -9,19 +9,12 @@ const CartContext = ({ children }) => {
 
   // 3. traes los states q usas
   const [products, setProducts] = useState([]);
-  const [quant, setQuant] = useState(0);
+  const [quant, setQuant] = useState(1);
   const [carrito, setCarrito] = useState([]);
+  const [showCart, setShowCart] = useState(0);
 
   //USER
   const [user, setUser] = useState({});
-
-  // const onAdd = (qValue) => {
-  //   console.log(
-  //     `Se tiene en el carrito ${qValue} ${
-  //       qValue > 1 ? "productos." : "producto."
-  //     }`
-  //   );
-  // };
 
   const masUno = () => {
     setQuant(quant + 1);
@@ -35,20 +28,21 @@ const CartContext = ({ children }) => {
   };
 
   const loadCarrito = (obj) => {
-    console.log(carrito.length);
-    if (carrito.length > 0 && isInCart(obj.id)) {
-      //si hay articulos y el id coincide
-      carrito.map((item) => {
-        if (item.id === obj.id) {
-          item.q = obj.q + item.q;
-        }
-      });
-    } else {
-      //si no hay articulos o el id no coincide
-      let carArr = carrito;
-      carArr.push(obj);
-      setCarrito(carArr);
-    }
+    //console.log(carrito.length);
+    //if (carrito.length > 0 && isInCart(obj.id)) {
+    //si hay articulos y el id coincide
+    //   carrito.map((item) => {
+    //     if (item.id === obj.id) {
+    //       item.q = obj.q + item.q;
+    //     }
+    //   });
+    // } else {
+    //si no hay articulos o el id no coincide
+    let carArr = carrito;
+    carArr.push(obj);
+    setCarrito(carArr);
+
+    // }
   };
 
   const isInCart = (itemId) => {
@@ -72,6 +66,8 @@ const CartContext = ({ children }) => {
         setProducts,
         user,
         setUser,
+        showCart,
+        setShowCart,
       }}
     >
       {children}

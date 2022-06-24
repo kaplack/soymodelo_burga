@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import ItemCount from "../components/Item/ItemCount";
@@ -20,25 +21,37 @@ function ItemDetail() {
 
   //const { quant, setQuant, loadCarrito, isInCart } = useContext(GlobalContext);
 
-  const { products, quant, setQuant, loadCarrito, isInCart } =
-    useContext(GlobalContext);
+  const {
+    products,
+    quant,
+    setQuant,
+    loadCarrito,
+    carrito,
+    setCarrito,
+    isInCart,
+    showCart,
+    setShowCart,
+  } = useContext(GlobalContext);
   //console.log(products);
   let detail = products.filter((e) => e.id === tid.id)[0];
 
   const addItem = () => {
     //if (quant > 0) {
-    console.log("hola");
+    //console.log("hola");
     const car = {
       id: detail.id,
       q: quant,
       price: detail.price,
     };
-    console.log(car);
+    //console.log(car);
 
     loadCarrito(car);
 
+    setShowCart((prevState) => prevState + 1);
+
     //console.log(carrito);
-    setQuant(0);
+
+    //setQuant(1);
     //}
   };
 
