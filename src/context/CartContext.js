@@ -42,6 +42,8 @@ const CartContext = ({ children }) => {
     carArr.push(obj);
     setCarrito(carArr);
 
+    window.localStorage.setItem("lsCarrito", JSON.stringify(carArr));
+
     // }
   };
 

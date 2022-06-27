@@ -16,6 +16,12 @@
       object-fit: cover;
       -o-object-position: center;
       object-position: center;
+      -webkit-filter: brightness(0.8);
+      filter: brightness(0.8);
+      &:hover {
+        -webkit-filter: brightness(1);
+                filter: brightness(1);
+      }
     }
   }
 

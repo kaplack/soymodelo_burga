@@ -22,10 +22,11 @@ const CreateProduct = () => {
     description: "",
     img: {},
     price: 0,
+    stock: 0,
     tags: [],
   });
 
-  const { category, name, excerpt, description, img, price, tags, userID } =
+  const { category, name, excerpt, description, img, price, tags, stock } =
     formData;
 
   const auth = getAuth();
@@ -227,10 +228,23 @@ const CreateProduct = () => {
                 Precio (PEN)
               </label>
               <input
-                type="text"
+                type="number"
                 id="price"
                 className="form__box--input-short"
                 value={price}
+                onChange={onMutate}
+                required
+              />
+            </div>
+            <div className="form__box flex">
+              <label htmlFor="stock" className="form__box--label">
+                Stock (Unidad)
+              </label>
+              <input
+                type="number"
+                id="stock"
+                className="form__box--input-short"
+                value={stock}
                 onChange={onMutate}
                 required
               />

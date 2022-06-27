@@ -1,12 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import CartListContainer from "../components/Cart/CartListContainer";
 import CartSum from "../components/Cart/CartSum";
 import Formulario from "../components/Formulario/Formulario";
 import { GlobalContext } from "../context/CartContext";
 
 function Checkout() {
-  const { carrito } = useContext(GlobalContext);
-
+  //const { carrito } = useContext(GlobalContext);
+  //const carrito = {};
+  // useEffect(() => {
+  //   carrito = JSON.parse(window.localStorage.getItem("lsCarrito"));
+  // }, []);
+  const carrito = JSON.parse(window.localStorage.getItem("lsCarrito"));
+  console.log(carrito);
   let totalBuy = carrito.reduce((a, b) => a + b.q * b.price, 0);
 
   return (

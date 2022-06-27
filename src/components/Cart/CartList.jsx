@@ -4,6 +4,7 @@ import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 
 const CartList = ({ products }) => {
+  //const carrito = JSON.parse(window.localStorage.getItem("lsCarrito"));
   const { carrito } = useContext(GlobalContext);
   //console.log(carrito);
   let newArr = [];

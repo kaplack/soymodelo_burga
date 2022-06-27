@@ -18,7 +18,7 @@ function MyNavbar() {
             <ul>
               {loggedIn ? (
                 <li>
-                  <NavLink to="/profile">Mi cuenta</NavLink>
+                  <NavLink to="/profile">Perfil</NavLink>
                 </li>
               ) : (
                 <li>
