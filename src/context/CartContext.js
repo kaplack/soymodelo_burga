@@ -16,11 +16,10 @@ const CartContext = ({ children }) => {
   //USER
   const [user, setUser] = useState({});
 
-  const masUno = () => {
-    setQuant(quant + 1);
-    // if (onAdd) {
-    //   onAdd(quant + 1);
-    // }
+  const masUno = (st) => {
+    if (st > quant) {
+      setQuant(quant + 1);
+    }
   };
 
   const menosUno = () => {

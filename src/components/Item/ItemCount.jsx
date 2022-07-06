@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { GlobalContext } from "../../context/CartContext";
 
-function ItemCount() {
+function ItemCount({ st }) {
   const { quant, menosUno, masUno } = useContext(GlobalContext);
 
   return (
@@ -13,7 +13,7 @@ function ItemCount() {
       <div>
         <span>{quant}</span>
       </div>
-      <div className="iButton" onClick={masUno}>
+      <div className="iButton" onClick={() => masUno(st)}>
         <AiFillPlusCircle size="1.5em" color="orangered" />
       </div>
     </div>

@@ -65,7 +65,7 @@ function ItemDetail() {
               <p>{detail.stock > 0 ? detail.stock : "Agotado"}</p>
             </div>
             <div className="detail__content--buttons">
-              {!isInCart(detail.id) && <ItemCount />}
+              {!isInCart(detail.id) && <ItemCount st={detail.stock} />}
               {!isInCart(detail.id) ? (
                 <button onClick={addItem} className="detail-btn">
                   Agregar al Carrito

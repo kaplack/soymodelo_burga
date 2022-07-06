@@ -19,7 +19,7 @@ const Formulario = ({ total, compra }) => {
     items: compra,
   });
   const navigate = useNavigate();
-  const { carrito, setCarrito, products, setShowCart, setQuant } =
+  const { carrito, setCarrito, products, setShowCart, setQuant, showCart } =
     useContext(GlobalContext);
   const [error, setError] = useState({});
   const {
@@ -67,7 +67,7 @@ const Formulario = ({ total, compra }) => {
   };
   const labelArray = ["Ingresa tu email", "Nombre", "Apellido", "Teléfono"];
   //let total = carrito.reduce((a, b) => a + b.price * b.q, 0);
-
+  let disable = showCart < 1 ? true : false;
   return (
     <section>
       <form onSubmit={handleSubmit} className="checkout-form">
@@ -86,6 +86,7 @@ const Formulario = ({ total, compra }) => {
           <button
             type="submit"
             className="checkout-form__submit--button btn btn-ghost"
+            disabled={disable}
           >
             Enviar
           </button>

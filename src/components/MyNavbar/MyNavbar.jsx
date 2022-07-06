@@ -1,8 +1,11 @@
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import { useAuthStatus } from "../../hooks/useAuthStatus";
+import { GlobalContext } from "../../context/CartContext";
 
 function MyNavbar() {
+  const { carrito, showCart } = useContext(GlobalContext);
   const { loggedIn } = useAuthStatus();
 
   return (
@@ -25,14 +28,17 @@ function MyNavbar() {
                   <NavLink to="/signin">Sign In</NavLink>
                 </li>
               )}
+              {showCart > 0 && (
+                <>
+                  <li>
+                    <NavLink to="/checkout">Checkout</NavLink>
+                  </li>
 
-              <li>
-                <NavLink to="/checkout">Checkout</NavLink>
-              </li>
-
-              <li>
-                <CartWidget />
-              </li>
+                  <li>
+                    <CartWidget />
+                  </li>
+                </>
+              )}
             </ul>
           </nav>
         </div>
